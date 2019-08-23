@@ -13,7 +13,7 @@ make -j $(grep -c ^processor /proc/cpuinfo)
 make install
 make install-python
 
-rm -rf $HOME/lammps-stable_7Aug2019
+rm -rf $HOME/lammps-stable_7Aug2019 ; rm $HOME/stable_7Aug2019.tar.gz
 
 # Ugly fix
 cd /home/$USER/.local/lib/ && ln -s python3.6 python3.7
