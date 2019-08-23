@@ -1,0 +1,10 @@
+gawk                                                                                                                                          
+vim                                                                                                                                           
+nano                                                                                                                                          
+mc                                                                                                                                            
+cython                                                                                                                                        
+wget                                                                                                                                          
+build-essential                                                                                                                               
+python3-dev
+less
+cmake
