@@ -1,0 +1,6 @@
+export PATH=$HOME/lammps/bin:$PATH
+export PYTHONPATH=${PYTHONPATH}:$HOME/lammps/lib/python3.6/
+export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:$HOME/lammps/lib
+export LAMMPS_COMMAND=$HOME/lammps/bin/lmp
+
+exec "$@"
