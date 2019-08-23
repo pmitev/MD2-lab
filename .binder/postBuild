@@ -1,0 +1,19 @@
+#!/bin/bash
+
+wget https://github.com/lammps/lammps/archive/stable_7Aug2019.tar.gz
+
+tar xvf stable_7Aug2019.tar.gz
+cd lammps-stable_7Aug2019 && mkdir build && cd build
+cmake -D CMAKE_INSTALL_PREFIX=$HOME/lammps \
+      -D CMAKE_BUILD_TYPE=Release -D PKG_PYTHON=on -D BUILD_LIB=on -D BUILD_SHARED_LIBS=on -D PKG_MANYBODY=yes ../cmake
+#      -D PYTHON_INCLUDE_DIR=$(python -c "from distutils.sysconfig import get_python_inc; print(get_python_inc())")  
+#      -D PYTHON_LIBRARY=$(python -c "import distutils.sysconfig as sysconfig; print(sysconfig.get_config_var('LIBDIR'))") ../cmake
+
+make -j $(grep -c ^processor /proc/cpuinfo)
+make install
+make install-python
+
+rm -rf $HOME/lammps-stable_7Aug2019
+
+# Ugly fix
+cd /home/$USER/.local/lib/ && ln -s python3.6 python3.7
